@@ -10,7 +10,10 @@ form.onsubmit = (e) =>{
     let xhr = new XMLHttpRequest(); //creating new xml object
     xhr.open("POST", "message.php", true);
     xhr.onload = () =>{
-
+        if(xhr.readyState == 4 && xhr.status == 200){
+            let response = xhr.response;
+            console.log(response);
+        }
     }
 
     xhr.send()
