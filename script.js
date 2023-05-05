@@ -1,3 +1,4 @@
+//you have to upload this code on live server, wont work on local host!
 
 const form = document.querySelector("form"),
 statusTxt = form.querySelector(".button-area span");
@@ -13,8 +14,13 @@ form.onsubmit = (e) =>{
     xhr.onload = () =>{
         if(xhr.readyState == 4 && xhr.status == 200){
             let response = xhr.response;
-            if(response.indexof("Email and password field is required") != -1 || response.indexof("Enter a valid email address!") != -1 || response.indexof("Sorry, failed to send your message!") != -1 ){
+            if(response.indexOf("Email and password field is required") != -1 || response.indexOf("Enter a valid email address!") != -1 || response.indexOf("Sorry, failed to send your message!") != -1 ){
                 statusTxt.style.color = "red";
+            } else{
+                form.reset();
+                setTimeout(()=>{
+                    statusTxt.style.display = "none";
+                }, 3000);
             }
             statusTxt.innerText = response;
         }
