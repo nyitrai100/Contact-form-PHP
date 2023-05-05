@@ -16,5 +16,7 @@ form.onsubmit = (e) =>{
         }
     }
 
-    xhr.send()
+    let formData = new FormData(form);
+
+    xhr.send(formData);
 }
