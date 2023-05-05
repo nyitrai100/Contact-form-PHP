@@ -1,3 +1,13 @@
 <?php
-    echo "this msg is sent from PHP file"
+   $name = $_POST['name'];
+   $email = $_POST['email'];
+   $phone = $_POST['phone'];
+   $website = $_POST['website'];
+   $message = $_POST['message'];
+
+    if(!empty($email) && !empty($message)){
+
+    }else{
+        echo "Email and password field is required!";
+    }
 ?>
